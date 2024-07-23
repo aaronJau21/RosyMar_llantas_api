@@ -23,6 +23,7 @@ class BrandTiresUpdate extends FormRequest
   {
     return [
       'nombre' => ['string'],
+      'modelo' => ['string']
     ];
   }
 }

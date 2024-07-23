@@ -14,7 +14,7 @@ return new class extends Migration
     Schema::create('tires', function (Blueprint $table) {
       $table->id();
       $table->integer('posicion')->default(1);
-      $table->string('fecha_inspeccion');
+      $table->string('KM_actutal');
       $table->foreignId('brand_id')->constrained('brand_tires');
       $table->foreignId('trucks_id')->constrained('trucks');
       $table->string('modelo');
@@ -25,8 +25,8 @@ return new class extends Migration
       $table->enum('estado', ['I', 'N', 'R']);
       $table->string('user_name_insert');
       $table->text('observaciones')->nullable();
-      $table->string('presion_aire')->nullable();
-      $table->string('rotaciones')->nullable();
+      $table->integer('presion_aire')->nullable();
+      $table->string('accion')->nullable();
       $table->timestamps();
     });
   }

@@ -20,6 +20,7 @@ class BrandTireController extends Controller
 
       $brandTire = BrandTire::create([
         'nombre' => $brandTiresRequest->input('nombre'),
+        'modelo' => $brandTiresRequest->input('modelo'),
         'user_name_insert' => $user->name
       ]);
 
@@ -35,7 +36,7 @@ class BrandTireController extends Controller
   public function getAllBrandTires(): JsonResponse
   {
     try {
-      $brandTires = BrandTire::select(['id', 'nombre'])->get();
+      $brandTires = BrandTire::select(['id', 'nombre', 'modelo'])->get();
 
       return response()->json([
         'brand_tires' => $brandTires
@@ -68,6 +69,7 @@ class BrandTireController extends Controller
 
       $brandTire->update([
         'nombre' => $brandTiresUpdate->input('nombre', $brandTire->nombre),
+        'modelo' => $brandTiresUpdate->input('modelo', $brandTire->modelo),
         'user_name_insert' => $user->name
       ]);
 

@@ -20,7 +20,7 @@ class TireController extends Controller
 
       $tire = Tire::create([
         'posicion' => $tiresRequest->input('posicion'),
-        'fecha_inspeccion' => $tiresRequest->input('fecha_inspeccion'),
+        'KM_actutal' => $tiresRequest->input('KM_actutal'),
         'brand_id' => $tiresRequest->input('brand_id'),
         'trucks_id' => $tiresRequest->input('trucks_id'),
         'modelo' => $tiresRequest->input('modelo'),
@@ -31,7 +31,7 @@ class TireController extends Controller
         'estado' => $tiresRequest->input('estado'),
         'observaciones' => $tiresRequest->input('observaciones'),
         'presion_aire' => $tiresRequest->input('presion_aire'),
-        'rotaciones' => $tiresRequest->input('rotaciones'),
+        'accion' => $tiresRequest->input('accion'),
         'user_name_insert' => $user->name
       ]);
 
@@ -80,7 +80,6 @@ class TireController extends Controller
 
       $tire->update([
         'posicion' => $tiresUpdate->input('posicion', $tire->posicion),
-        'fecha_inspeccion' => $tiresUpdate->input('fecha_inspeccion', $tire->fecha_inspeccion),
         'brand_id' => $tiresUpdate->input('brand_id', $tire->brand_id),
         'trucks_id' => $tiresUpdate->input('trucks_id', $tire->trucks_id),
         'modelo' => $tiresUpdate->input('modelo', $tire->modelo),
@@ -91,7 +90,6 @@ class TireController extends Controller
         'estado' => $tiresUpdate->input('estado', $tire->estado),
         'observaciones' => $tiresUpdate->input('observaciones', $tire->observaciones),
         'presion_aire' => $tiresUpdate->input('presion_aire', $tire->presion_aire),
-        'rotaciones' => $tiresUpdate->input('rotaciones', $tire->rotaciones),
         'user_name_insert' => $user->name
       ]);
 

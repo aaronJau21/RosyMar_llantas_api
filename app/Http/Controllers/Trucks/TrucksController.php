@@ -124,4 +124,19 @@ class TrucksController extends Controller
       ], 500);
     }
   }
+
+  public function getPlaca(): JsonResponse
+  {
+    try {
+      $placas = Truck::select(['id', 'placa'])->get();
+      return response()->json([
+        'placa' => $placas
+      ]);
+    } catch (\Exception $e) {
+      return response()->json([
+        'msg' => 'Error Del servidor',
+        'error' => $e->getMessage()
+      ], 500);
+    }
+  }
 }

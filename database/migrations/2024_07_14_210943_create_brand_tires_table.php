@@ -13,7 +13,8 @@ return new class extends Migration
   {
     Schema::create('brand_tires', function (Blueprint $table) {
       $table->id();
-      $table->string('nombre');
+      $table->string('nombre')->unique();
+      $table->string('modelo');
       $table->string('user_name_insert');
       $table->timestamps();
     });

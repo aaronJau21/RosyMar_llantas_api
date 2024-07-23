@@ -27,6 +27,8 @@ Route::prefix('trucks')->middleware('auth:sanctum')->group(function () {
   Route::delete('{id}', [TrucksController::class, 'deleteTruck']);
 });
 
+Route::get('placas', [TrucksController::class, 'getPlaca'])->middleware('auth:sanctum');
+
 
 Route::prefix('tire')->middleware('auth:sanctum')->group(function () {
   Route::prefix('brand')->group(function () {

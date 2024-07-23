@@ -23,6 +23,7 @@ class BrandTiresRequest extends FormRequest
   {
     return [
       'nombre' => ['required', 'string'],
+      'modelo' => ['required']
     ];
   }
 }

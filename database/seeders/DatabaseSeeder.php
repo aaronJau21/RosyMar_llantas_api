@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
 
     $this->call([
       LoginSeeder::class,
-      TrucksSeed::class
+      TrucksSeed::class,
+      BrandSeed::class
     ]);
   }
 }

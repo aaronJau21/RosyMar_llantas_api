@@ -26,9 +26,9 @@ class TiresRequest extends FormRequest
   {
     return [
       'posicion' => ['integer'],
-      'fecha_inspeccion' => ['required', 'string'],
-      'brand_id' => ['required', 'integer', 'exists:brand_tires,id'],
-      'trucks_id' => ['required', 'integer', 'exists:trucks,id'],
+      'KM_actutal' => ['required'],
+      'brand_id' => ['required', 'exists:brand_tires,id'],
+      'trucks_id' => ['required', 'exists:trucks,id'],
       'modelo' => ['required', 'string'],
       'medida' => ['required'],
       'R1' => ['required', 'integer'],
@@ -36,8 +36,7 @@ class TiresRequest extends FormRequest
       'R3' => ['required', 'integer'],
       'estado' => ['required', new Enum(TireEstadoEnum::class)],
       'observaciones' => ['nullable'],
-      'presion_aire' => ['nullable'],
-      'rotaciones' => ['nullable']
+      'presion_aire' => ['nullable']
     ];
   }
 }
