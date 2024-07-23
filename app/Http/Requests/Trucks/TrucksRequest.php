@@ -23,9 +23,9 @@ class TrucksRequest extends FormRequest
   {
     return [
       'marca' => ['required'],
-      'modelo' => ['required'],
       'placa' => ['required', 'size:6'],
       'cantidad_llantas' => ['required', 'integer'],
+      'observation' => ['nullable']
     ];
   }
 }

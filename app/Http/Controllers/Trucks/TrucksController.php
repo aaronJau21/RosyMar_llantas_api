@@ -19,9 +19,9 @@ class TrucksController extends Controller
 
       $trucks = Truck::create([
         'marca' => $trucksRequest->input('marca'),
-        'modelo' => $trucksRequest->input('modelo'),
         'placa' => $trucksRequest->input('placa'),
         'cantidad_llantas' => $trucksRequest->input('cantidad_llantas'),
+        'observation' => $trucksRequest->input('observation'),
         'user_name_insert' => $user->name
       ]);
 
@@ -41,7 +41,7 @@ class TrucksController extends Controller
   {
 
     try {
-      $trucks = Truck::select(['id', 'marca', 'modelo', 'placa', 'cantidad_llantas'])->get();
+      $trucks = Truck::select(['id', 'marca', 'placa', 'cantidad_llantas'])->get();
 
       return response()->json([
         'trucks' => $trucks
@@ -83,9 +83,9 @@ class TrucksController extends Controller
 
       $truck->update([
         'marca' => $trucksRequest->input('marca', $truck->marca),
-        'modelo' => $trucksRequest->input('modelo', $truck->modelo),
         'placa' => $trucksRequest->input('placa', $truck->placa),
         'cantidad_llantas' => $trucksRequest->input('cantidad_llantas', $truck->cantidad_llantas),
+        'observation' => $trucksRequest->input('observation', $truck->observation),
         'user_name_insert' => $user->name
       ]);
 

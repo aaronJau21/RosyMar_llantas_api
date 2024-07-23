@@ -14,9 +14,9 @@ return new class extends Migration
     Schema::create('trucks', function (Blueprint $table) {
       $table->id();
       $table->string('marca');
-      $table->string('modelo');
-      $table->string('placa');
+      $table->string('placa')->unique();
       $table->integer('cantidad_llantas');
+      $table->text('observation')->nullable();
       $table->string('user_name_insert');
       $table->timestamps();
     });

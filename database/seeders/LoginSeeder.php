@@ -15,8 +15,8 @@ class LoginSeeder extends Seeder
   public function run(): void
   {
     User::create([
-      'name' => 'Aaron Juaregui',
-      'dni' => '72667844',
+      'name' => 'Sthefano Avila',
+      'dni' => '72437318',
       'password' => Hash::make('123456789'),
       'role' => 'Administrador'
     ]);
