@@ -89,7 +89,9 @@ class TrucksController extends Controller
         'user_name_insert' => $user->name
       ]);
 
-      return $truck;
+      return response()->json([
+        'truck' =>  $truck
+      ]);
     } catch (ModelNotFoundException $e) {
       return response()->json([
         'msg' => 'No existe el Camión con el id:' . $id
