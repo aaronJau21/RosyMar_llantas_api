@@ -16,6 +16,9 @@ Route::group(['prefix' => 'auth'], function () {
 Route::prefix('users')->middleware('auth:sanctum')->group(function () {
   Route::get('', [UserController::class, 'getAllUsers']);
   Route::post('', [UserController::class, 'createUser']);
+  Route::get('{id}', [UserController::class, 'getUserById']);
+  Route::put('{id}', [UserController::class, 'editUser']);
+  Route::delete('{id}', [UserController::class, 'deleteUser']);
 });
 
 
