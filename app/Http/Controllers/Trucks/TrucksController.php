@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Trucks;
 
+use App\Exports\TrucksExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Trucks\TrucksRequest;
 use App\Http\Requests\Trucks\TrucksUpdate;
@@ -9,6 +10,7 @@ use App\Models\Truck;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TrucksController extends Controller
 {
@@ -140,5 +142,10 @@ class TrucksController extends Controller
         'error' => $e->getMessage()
       ], 500);
     }
+  }
+
+  public function exportTruck()
+  {
+    return Excel::download(new TrucksExport, 'trucks.xlsx');
   }
 }

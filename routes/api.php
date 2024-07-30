@@ -19,6 +19,7 @@ Route::prefix('users')->middleware('auth:sanctum')->group(function () {
   Route::get('{id}', [UserController::class, 'getUserById']);
   Route::put('{id}', [UserController::class, 'editUser']);
   Route::delete('{id}', [UserController::class, 'deleteUser']);
+  Route::get('/export/excel', [UserController::class, 'export']);
 });
 
 
@@ -28,6 +29,7 @@ Route::prefix('trucks')->middleware('auth:sanctum')->group(function () {
   Route::get('{id}', [TrucksController::class, 'trunkById']);
   Route::patch('{id}', [TrucksController::class, 'updatedTruck']);
   Route::delete('{id}', [TrucksController::class, 'deleteTruck']);
+  Route::get('/export/excel', [TrucksController::class, 'exportTruck']);
 });
 
 Route::get('placas', [TrucksController::class, 'getPlaca'])->middleware('auth:sanctum');

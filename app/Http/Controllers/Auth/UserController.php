@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Exports\UsersExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\User\UserRequest;
 use App\Http\Requests\User\UserUpdateRequest;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
+use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
@@ -103,6 +105,11 @@ class UserController extends Controller
         'error' => $th->getMessage()
       ], 500);
     }
+  }
+
+  public function export()
+  {
+    return Excel::download(new UsersExport, 'users.xlsx');
   }
 
 
