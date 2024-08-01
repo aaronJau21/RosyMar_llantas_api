@@ -2,22 +2,40 @@
   <thead>
     <tr>
       <th>Id</th>
-      <th>posicion</th>
-      <th>KM_actutal</th>
-      <th>Cantidad de llantas</th>
+      <th>Posicion</th>
+      <th>KM actutal</th>
+      <th>Marca</th>
+      <th>Placa</th>
+      <th>Modelo</th>
+      <th>medida</th>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>Estado</th>
+      <th>Registrado</th>
       <th>Observaciones</th>
-      <th>Creado</th>
+      <th>Presion de aire</th>
+      <th>Accion</th>
     </tr>
   </thead>
   <tbody>
-    @foreach ($trucks as $truck)
+    @foreach ($tire as $truck)
     <tr>
       <td>{{$truck->id}}</td>
-      <td>{{$truck->marca}}</td>
-      <td>{{$truck->placa}}</td>
-      <td>{{$truck->cantidad_llantas}}</td>
-      <td>{{$truck->observation}}</td>
+      <td>{{$truck->posicion}}</td>
+      <td>{{$truck->KM_actutal}}</td>
+      <td>{{$truck->brandTire->nombre}}</td>
+      <td>{{$truck->truck->placa}}</td>
+      <td>{{$truck->modelo}}</td>
+      <td>{{$truck->medida}}</td>
+      <td>{{$truck->R1}}</td>
+      <td>{{$truck->R2}}</td>
+      <td>{{$truck->R3}}</td>
+      <td>{{$truck->estado}}</td>
       <td>{{$truck->user_name_insert}}</td>
+      <td>{{$truck->observaciones}}</td>
+      <td>{{$truck->presion_aire}}</td>
+      <td>{{$truck->accion}}</td>
     </tr>
     @endforeach
   </tbody>

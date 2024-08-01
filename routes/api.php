@@ -48,4 +48,5 @@ Route::prefix('tire')->middleware('auth:sanctum')->group(function () {
   Route::get('{id}', [TireController::class, 'getTiresById']);
   Route::patch('{id}', [TireController::class, 'updateTire']);
   Route::delete('{id}', [TireController::class, 'deleteTire']);
+  Route::get('/export/excel', [TireController::class, 'exportTire']);
 });

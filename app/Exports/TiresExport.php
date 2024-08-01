@@ -14,7 +14,7 @@ class TiresExport implements FromView
   public function view(): View
   {
     return view('exporTires', [
-      'tire' => Tire::all()
+      'tire' => Tire::with(['truck', 'brandTire'])->get()
     ]);
   }
 }

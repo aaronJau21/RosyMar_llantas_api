@@ -15,8 +15,8 @@ return new class extends Migration
       $table->id();
       $table->integer('posicion')->default(1);
       $table->string('KM_actutal');
-      $table->foreignId('brand_id')->constrained('brand_tires');
-      $table->foreignId('trucks_id')->constrained('trucks');
+      $table->foreignId('brand_id')->constrained('brand_tires')->cascadeOnDelete();
+      $table->foreignId('trucks_id')->constrained('trucks')->cascadeOnDelete();
       $table->string('modelo');
       $table->string('medida');
       $table->integer('R1');

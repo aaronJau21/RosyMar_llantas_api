@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Tires;
 
+use App\Exports\TiresExport;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Tires\TiresRequest;
 use App\Http\Requests\Tires\TiresUpdate;
@@ -9,6 +10,7 @@ use App\Models\Tire;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TireController extends Controller
 {
@@ -90,6 +92,8 @@ class TireController extends Controller
         'estado' => $tiresUpdate->input('estado', $tire->estado),
         'observaciones' => $tiresUpdate->input('observaciones', $tire->observaciones),
         'presion_aire' => $tiresUpdate->input('presion_aire', $tire->presion_aire),
+        'presion_aire' => $tiresUpdate->input('presion_aire', $tire->presion_aire),
+        'accion' => $tiresUpdate->input('accion', $tire->accion),
         'user_name_insert' => $user->name
       ]);
 
@@ -117,6 +121,11 @@ class TireController extends Controller
     } catch (\Exception $th) {
       return $this->responseErrorServer($th);
     }
+  }
+
+  public function exportTire()
+  {
+    return Excel::download(new TiresExport, 'tire.xlsx');
   }
 
   // Private

@@ -36,7 +36,8 @@ class TiresUpdate extends FormRequest
       'estado' => [new Enum(TireEstadoEnum::class)],
       'observaciones' => ['nullable'],
       'presion_aire' => ['nullable'],
-      'rotaciones' => ['nullable']
+      'rotaciones' => ['nullable'],
+      'accion' => ['nullable'],
     ];
   }
 }

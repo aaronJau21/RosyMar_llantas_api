@@ -20,5 +20,11 @@ class LoginSeeder extends Seeder
       'password' => Hash::make('123456789'),
       'role' => 'Administrador'
     ]);
+    User::create([
+      'name' => 'Aaron Jauregui',
+      'dni' => '72667844',
+      'password' => Hash::make('123456789'),
+      'role' => 'Administrador'
+    ]);
   }
 }
