@@ -15,7 +15,9 @@ return new class extends Migration
       $table->id();
       $table->string('marca');
       $table->string('placa')->unique();
-      $table->integer('cantidad_llantas');
+      $table->string('dueno')->nullable();
+      $table->integer('tolerancia_delantera')->nullable();
+      $table->integer('tolerancia_trasera')->nullable();
       $table->text('observation')->nullable();
       $table->string('user_name_insert');
       $table->timestamps();

@@ -25,7 +25,9 @@ class TrucksUpdate extends FormRequest
       'marca' => ['string'],
       'modelo' => ['string'],
       'placa' => ['string'],
-      'cantidad_llantas' => ['integer']
+      'dueno' => ['nullable'],
+      'tolerancia_delantera' => ['nullable'],
+      'tolerancia_trasera' => ['nullable'],
     ];
   }
 }

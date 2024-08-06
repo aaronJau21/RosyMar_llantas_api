@@ -22,7 +22,9 @@ class TrucksController extends Controller
       $trucks = Truck::create([
         'marca' => $trucksRequest->input('marca'),
         'placa' => $trucksRequest->input('placa'),
-        'cantidad_llantas' => $trucksRequest->input('cantidad_llantas'),
+        'dueno' => $trucksRequest->input('dueno'),
+        'tolerancia_delantera' => $trucksRequest->input('tolerancia_delantera'),
+        'tolerancia_trasera' => $trucksRequest->input('tolerancia_trasera'),
         'observation' => $trucksRequest->input('observation'),
         'user_name_insert' => $user->name
       ]);
@@ -43,7 +45,7 @@ class TrucksController extends Controller
   {
 
     try {
-      $trucks = Truck::select(['id', 'marca', 'placa', 'cantidad_llantas'])->get();
+      $trucks = Truck::select(['id', 'marca', 'placa'])->get();
 
       return response()->json([
         'trucks' => $trucks
@@ -86,8 +88,9 @@ class TrucksController extends Controller
       $truck->update([
         'marca' => $trucksRequest->input('marca', $truck->marca),
         'placa' => $trucksRequest->input('placa', $truck->placa),
-        'cantidad_llantas' => $trucksRequest->input('cantidad_llantas', $truck->cantidad_llantas),
-        'observation' => $trucksRequest->input('observation', $truck->observation),
+        'dueno' => $trucksRequest->input('dueno', $truck->dueno),
+        'tolerancia_delantera' => $trucksRequest->input('tolerancia_delantera', $truck->tolerancia_delantera),
+        'tolerancia_trasera' => $trucksRequest->input('tolerancia_trasera', $truck->tolerancia_trasera),
         'user_name_insert' => $user->name
       ]);
 
