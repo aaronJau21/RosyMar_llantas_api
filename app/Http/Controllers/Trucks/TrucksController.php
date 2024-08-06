@@ -45,7 +45,7 @@ class TrucksController extends Controller
   {
 
     try {
-      $trucks = Truck::select(['id', 'marca', 'placa'])->get();
+      $trucks = Truck::select(['id', 'marca', 'placa', 'dueno', 'tolerancia_delantera', 'tolerancia_trasera'])->get();
 
       return response()->json([
         'trucks' => $trucks
